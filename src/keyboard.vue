@@ -255,24 +255,24 @@
 				if (this.change)
 					this.change(text, addChar);
 
-				if (this.input.maxLength > 0 && text.length >= this.input.maxLength) {
+				/*if (this.input.maxLength > 0 && text.length >= this.input.maxLength) {
 					// The value reached the maxLength
 					if (this.next)
 						this.next();
-				}
+				}*/
 
 				// trigger 'input' Event
-				this.input.dispatchEvent(new Event('input', { bubbles: true }));
+				this.input.dispatchEvent(new Event("input", { bubbles: true }));
 
 			},
 			
 			setFocusToInput(caret) {
-				this.input.focus();
 				if (caret && this.supportsSelection()) {
 					this.input.selectionStart = caret.start;
 					this.input.selectionEnd = caret.end;
 				}
-			}			
+				this.input.focus();
+			}
 		},
 
 		mounted() {
